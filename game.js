@@ -154,13 +154,13 @@ var game = new Phaser.Game(width, height, Phaser.AUTO, 'game');
             if(this.toLeft === true){
                 this.rightTween.start();
                 this.leftTween.stop();
-                this.leftTween = game.add.tween(this.btn).to({x:-game.width}, 2000*(1.0/(1+Math.pow(1.2,this.score-30))));
+                this.leftTween = game.add.tween(this.btn).to({x:-game.width}, 6000*(1.0/(1+Math.log(100,this.score))));
                 this.toLeft = false;
             }
             else {
                 this.leftTween.start();
                 this.rightTween.stop();
-                this.rightTween = game.add.tween(this.btn).to({x:game.width/2+game.width}, 2000*(1.0/(1+Math.log(1.2,this.score+1))));
+                this.rightTween = game.add.tween(this.btn).to({x:game.width/2+game.width}, 6000*(1.0/(1+Math.log(100,this.score))));
                 this.toLeft = true; 
             }
         };
