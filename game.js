@@ -150,7 +150,7 @@ var game = new Phaser.Game(width, height, Phaser.AUTO, 'game');
           game.stage.backgroundColor = tintColor;
             this.score += 1;
             this.scoreText.text = this.score;
-            this.scoreText.style.font = "90px Segoe UI Light";
+            this.scoreText.style.font = "150px Segoe UI Light";
             if(this.toLeft === true){
                 this.rightTween.start();
                 this.leftTween.stop();
@@ -180,7 +180,9 @@ var game = new Phaser.Game(width, height, Phaser.AUTO, 'game');
                 bangEffect2.animations.play('fly',15,false,true);
                 this.gameIsOver = true;
                 }
-                this.scoreText.text = "Game Over";
+                this.scoreText.text = "Game Over.";
+                this.scoreText.style.font = "80px Segoe UI Light";
+                game.add.text(game.world.centerX, game.world.centerY+200, "Final Score: "+this.score, {font: "40px Segoe UI Light", fill: "#FFFFFF", align: "center"}).anchor.setTo(0.5, 0.5);
                 game.add.button(game.width/2, game.height/2+300,'btn',function(){game.state.start('play');}).anchor.setTo(0.5, 0.5);
             }
         };
